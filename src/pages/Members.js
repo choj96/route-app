@@ -1,6 +1,25 @@
 import React from "react";
+import { useNavigate } from "react-router";
 
 const Members = (props) => {
+  // useNavigate Hookd 은 navigate() 를 리턴한다.
+  // navigate(to, option) 이 있다.
+  //     to: 이동할 경로
+  // option: {replace : true/false, state : {}}
+
+  //          replace 란 history 관리
+  //                       false 가 기본값
+  //                       (이전 history 교체 안함, history 적립중)
+  //                       true (이전 history 교체)
+  //          state 란 네비게이션 할 때 전달할 정보
+  //                이동한 후에 location.state 로 사용가능
+
+  const navigate = useNavigate();
+  const goHome = () => {
+    if (window.confirm("홈으로 이동하시겠습니까?")) {
+      navigate("/", { state: { from: "/member" } });
+    }
+  };
   // 이미지 사이즈 객체 설정
   const imgSize = { width: 90, height: 80 };
   const list = props.members.map((item, index) => {
@@ -26,6 +45,9 @@ const Members = (props) => {
       <div className="container">
         <div className="row">{list}</div>
       </div>
+      <button className="btn btn-primary" onClick={goHome}>
+        Go Home
+      </button>
     </div>
   );
 };
