@@ -7,7 +7,7 @@ React 미니 프로젝트를 위한 연습
 ## 피그마 URL
 
 웹 서비스 레이아웃 및 컴포넌트 구조 \
-[피그마보기](https://www.figma.com/file/XwEWFJKbWFQdN2GuWrzypk/%EB%A6%AC%EC%95%A1%ED%8A%B8-%EB%9D%BC%EC%9A%B0%ED%84%B0-%EC%97%B0%EC%8A%B5?node-id=0%3A1&t=X0awCf3ZQhphaymn-1)
+[피그마보기](<https://www.figma.com/file/h5izNKzE4pexFFm3QxqZMI/miniProject(%EA%B5%90%EB%B3%B4%EB%AC%B8%EA%B3%A0)?node-id=0%3A1&t=VX7k8VDz1qn8VU22-1>)
 
 ## `팀원구성`
 

@@ -11,7 +11,13 @@ import Members from "./pages/Members";
 import SongList from "./pages/SongList";
 import Player from "./pages/Player";
 import PlayerIndex from "./pages/PlayerIndex";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import NotFound from "./pages/NotFound";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 
 const App = () => {
   // 멤버목록 데이터
@@ -33,7 +39,7 @@ const App = () => {
       start: 1,
       count: 5,
     };
-    const resultMember = await instance.get(requests.fetchMember,{params});
+    const resultMember = await instance.get(requests.fetchMember, { params });
     setMembers(resultMember.data);
     const resultSong = await instance.get(requests.fetchSong);
     setSongs(resultSong.data);
@@ -54,13 +60,16 @@ const App = () => {
           {/* <Route path="개발자가 설정한 URL/"/> */}
           {/* <Route path="/ : 도메인만 입력"/> */}
           {/* <Route element=" {<보여줄 컴포넌트 엘리먼트 />} /> */}
-          <Route path="/" element={<Home />} />
+          {/* 강제로 home으로 보낼때 {<Navigate to="/home" />} */}
+          <Route path="/" element={<Navigate to="/home" />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/about" element={<About title="인디밴드" />} />
           <Route path="/members" element={<Members members={members} />} />
           <Route path="/songs" element={<SongList songs={songs} />}>
             <Route index element={<PlayerIndex />} />
             <Route path=":id" element={<Player songs={songs} />}></Route>
           </Route>
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
     </Router>
