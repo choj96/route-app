@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -9,18 +9,39 @@ const Header = () => {
         <div className="row">
           <div className="col-12">
             {/* <Link to="전환할 URI" */}
-            <Link className="btn btn-success menu" to="/">
+            {/* NavLink : Link가 현재 경로와 일치하면 css 설정 */}
+            <NavLink
+              className={({ isActive }) => {
+                return isActive ? "btn menu btn-dark" : "btn menu btn-success";
+              }}
+              to="/home"
+            >
               Home
-            </Link>
-            <Link className="btn btn-success menu" to="/about">
+            </NavLink>
+            <NavLink
+              className={({ isActive }) => {
+                return isActive ? "btn menu btn-dark" : "btn menu btn-success";
+              }}
+              to="/about"
+            >
               About
-            </Link>
-            <Link className="btn btn-success menu" to="/members">
+            </NavLink>
+            <NavLink
+              className={({ isActive }) => {
+                return isActive ? "btn menu btn-dark" : "btn menu btn-success";
+              }}
+              to="/members"
+            >
               Members
-            </Link>
-            <Link className="btn btn-success menu" to="/songs">
+            </NavLink>
+            <NavLink
+              className={({ isActive }) => {
+                return isActive ? "btn menu btn-dark" : "btn menu btn-success";
+              }}
+              to="/songs"
+            >
               Songs
-            </Link>
+            </NavLink>
           </div>
         </div>
       </div>
